@@ -2,15 +2,11 @@
 
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
-        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <Title>Toxic.Core</Title>
+        <Title>Toxic.AspNetCore</Title>
         <Authors>Dokey</Authors>
         <PackageProjectUrl>https://linxuanchina.github.io/toxic/</PackageProjectUrl>
-        <Company>Dokey</Company>
-        <Product>Toxic</Product>
-        <PackageLicenseUrl></PackageLicenseUrl>
-        <PackageIconUrl></PackageIconUrl>
         <RepositoryUrl>https://github.com/linxuanchina/toxic/</RepositoryUrl>
+        <Company>Dokey</Company>
         <PackageTags>toxic</PackageTags>
     </PropertyGroup>
 

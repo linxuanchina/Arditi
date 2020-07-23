@@ -1,37 +1,59 @@
-## Welcome to GitHub Pages
+## Toxic
 
-You can use the [editor on GitHub](https://github.com/linxuanchina/Toxic/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+[![996.icu](https://img.shields.io/badge/link-996.icu-red.svg)](https://996.icu) [![LICENSE](https://img.shields.io/badge/license-Anti%20996-blue.svg)](https://github.com/996icu/996.ICU/blob/master/LICENSE)
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+**Toxic** 是一组基于 [.NET Standard](https://docs.microsoft.com/dotnet/standard/net-standard) 的 [.NET class libraries](https://docs.microsoft.com/dotnet/standard/class-libraries) ，目的是提升开发生产力，内容如下
 
-### Markdown
+* 提升生产力的扩展函数
+* 常用的工具类
+* 第三方组件的封装与扩展
+* 第三方业务接口的封装
+* 配套的代码的生成模板
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+### 建议
 
-```markdown
-Syntax highlighted code block
+1. 代码规范 [Clean Code concepts adapted](https://github.com/thangchung/clean-code-dotnet)
+2. [Anti 996](https://996.icu/) 
 
-# Header 1
-## Header 2
-### Header 3
+### 内容
 
-- Bulleted
-- List
+* Toxic.Core [![Toxic.Core](https://img.shields.io/badge/Toxic.Core-NuGet-blue)](http://www.baidu.com)
+* Toxic.AspNetCore
+* Toxic.EntityFramework
+* Toxic.Validation
 
-1. Numbered
-2. List
+### 文档
 
-**Bold** and _Italic_ and `Code` text
+* [CSharp Documentation](https://docs.microsoft.com/dotnet/csharp/)
+* [ASP.NET Core Documentation](https://docs.microsoft.com/aspnet/core/)
+* [.NET Core Documentation ](https://docs.microsoft.com/dotnet/welcome)
+* [.Net Core SDK](https://dotnet.microsoft.com/download)
+* [Entity Framework Documentation](https://docs.microsoft.com/ef/)
+* [Entity Framework Tutorial](http://www.entityframeworktutorial.net/efcore/entity-framework-core.aspx)
 
-[Link](url) and ![Image](src)
-```
+### 组件
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+#### EntityFramework
 
-### Jekyll Themes
+* [System.Linq.Dynamic.Core](https://github.com/zzzprojects/System.Linq.Dynamic.Core)
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/linxuanchina/Toxic/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+#### Application
 
-### Support or Contact
+* [Z.ExtensionMethods](https://github.com/zzzprojects/Z.ExtensionMethods)
+* [Polly](https://github.com/App-vNext/Polly)
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+#### Log
+
+* [Serilog](https://serilog.net/)
+
+#### Validation
+
+* [FluentValidation](https://fluentvalidation.net/)
+
+#### AOP
+
+* [AspectCore.Extensions.DependencyInjection](https://github.com/dotnetcore/AspectCore-Framework)
+
+#### Cache
+
+* [EasyCaching](https://github.com/dotnetcore/EasyCaching)

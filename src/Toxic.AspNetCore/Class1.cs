@@ -1,9 +1,8 @@
 ﻿using System;
 
-namespace Toxic.Core
+namespace Toxic.AspNetCore
 {
     public class Class1
     {
-        
     }
 }
