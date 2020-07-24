@@ -10,4 +10,10 @@
         <PackageTags>toxic</PackageTags>
     </PropertyGroup>
 
+    <ItemGroup>
+      <PackageReference Include="FluentValidation.AspNetCore" Version="8.6.2" />
+      <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="8.0.1" />
+      <PackageReference Include="Serilog.AspNetCore" Version="3.4.0" />
+    </ItemGroup>
+
 </Project>

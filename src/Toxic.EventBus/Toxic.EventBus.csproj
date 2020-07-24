@@ -10,4 +10,12 @@
         <Company>Dokey</Company>
     </PropertyGroup>
 
+    <ItemGroup>
+      <PackageReference Include="MediatR" Version="8.0.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Toxic.Core\Toxic.Core.csproj" />
+    </ItemGroup>
+
 </Project>
