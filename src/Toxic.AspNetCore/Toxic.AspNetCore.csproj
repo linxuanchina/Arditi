@@ -8,6 +8,7 @@
         <RepositoryUrl>https://github.com/linxuanchina/toxic/</RepositoryUrl>
         <Company>Dokey</Company>
         <PackageTags>toxic</PackageTags>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     </PropertyGroup>
 
     <ItemGroup>

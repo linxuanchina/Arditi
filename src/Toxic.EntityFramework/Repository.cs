@@ -151,7 +151,8 @@ namespace Toxic.EntityFramework
         {
             entities = Guard.Argument(entities, nameof(entities)).NotNull().NotEmpty();
             var entityType = typeof(TEntity);
-            if (typeof(ISoftDeleteEntity).IsAssignableFrom(entityType))
+            isSoftDelete = typeof(ISoftDeleteEntity).IsAssignableFrom(entityType);
+            if (isSoftDelete)
             {
                 foreach (var entity in entities)
                 {
