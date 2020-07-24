@@ -6,9 +6,13 @@
         <Authors>Dokey</Authors>
         <PackageProjectUrl>https://linxuanchina.github.io/toxic/</PackageProjectUrl>
         <RepositoryUrl>https://github.com/linxuanchina/toxic/</RepositoryUrl>
-        <PackageTags>toxic</PackageTags>
         <Company>Dokey</Company>
+        <PackageTags>dokey,toxic</PackageTags>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageId>Dokey.Toxic.EntityFramework</PackageId>
+        <Description>Toxic 是一组基于 .NET Standard 的 .NET class libraries ，目的是提升开发生产力。</Description>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     </PropertyGroup>
 
     <ItemGroup>

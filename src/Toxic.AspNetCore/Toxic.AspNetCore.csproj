@@ -7,8 +7,12 @@
         <PackageProjectUrl>https://linxuanchina.github.io/toxic/</PackageProjectUrl>
         <RepositoryUrl>https://github.com/linxuanchina/toxic/</RepositoryUrl>
         <Company>Dokey</Company>
-        <PackageTags>toxic</PackageTags>
+        <PackageTags>dokey,toxic</PackageTags>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageId>Dokey.Toxic.AspNetCore</PackageId>
+        <Description>Toxic 是一组基于 .NET Standard 的 .NET class libraries ，目的是提升开发生产力。</Description>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     </PropertyGroup>
 
     <ItemGroup>

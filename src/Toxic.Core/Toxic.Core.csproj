@@ -2,16 +2,17 @@
 
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
-        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Title>Toxic.Core</Title>
         <Authors>Dokey</Authors>
         <PackageProjectUrl>https://linxuanchina.github.io/toxic/</PackageProjectUrl>
-        <Company>Dokey</Company>
-        <Product>Toxic</Product>
-        <PackageLicenseUrl></PackageLicenseUrl>
-        <PackageIconUrl></PackageIconUrl>
         <RepositoryUrl>https://github.com/linxuanchina/toxic/</RepositoryUrl>
-        <PackageTags>toxic</PackageTags>
+        <Company>Dokey</Company>
+        <PackageTags>dokey,toxic</PackageTags>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageId>Dokey.Toxic.Core</PackageId>
+        <Description>Toxic 是一组基于 .NET Standard 的 .NET class libraries ，目的是提升开发生产力。</Description>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     </PropertyGroup>
 
     <ItemGroup>
