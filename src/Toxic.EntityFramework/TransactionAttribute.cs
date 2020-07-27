@@ -4,11 +4,11 @@ using System.Threading.Tasks;
 
 namespace Toxic.EntityFramework
 {
-    public sealed class TransactionInterceptorAttribute : AbstractInterceptorAttribute
+    public sealed class TransactionAttribute : AbstractInterceptorAttribute
     {
         private readonly IUnitOfWork _dbUnitOfWork;
 
-        public TransactionInterceptorAttribute(IUnitOfWork dbUnitOfWork)
+        public TransactionAttribute(IUnitOfWork dbUnitOfWork)
         {
             _dbUnitOfWork = dbUnitOfWork;
         }

@@ -17,12 +17,13 @@
 
 ### 内容
 
-* Toxic.Core [![Toxic.Core](https://img.shields.io/badge/Toxic.Core-NuGet-blue)](http://www.baidu.com)
-* Toxic.AspNetCore
-* Toxic.EntityFramework
-* Toxic.Validation
+* [![Dokey.Toxic.Core](https://img.shields.io/badge/Dokey.Toxic.Core-NuGet-blue)](https://www.nuget.org/packages/Dokey.Toxic.Core/)
+* [![Dokey.Toxic.AspNetCore](https://img.shields.io/badge/Dokey.Toxic.AspNetCore-NuGet-blue)](https://www.nuget.org/packages/Dokey.Toxic.AspNetCore/)
+* [![Dokey.Toxic.EntityFramework](https://img.shields.io/badge/Dokey.Toxic.EntityFramework-NuGet-blue)](https://www.nuget.org/packages/Dokey.Toxic.EntityFramework/)
+* [![Dokey.Toxic.EventBus](https://img.shields.io/badge/Dokey.Toxic.EventBus-NuGet-blue)](https://www.nuget.org/packages/Dokey.Toxic.EventBus/)
+* [![Dokey.Toxic.Validation](https://img.shields.io/badge/Dokey.Toxic.Validation-NuGet-blue)](https://www.nuget.org/packages/Dokey.Toxic.Validation/)
 
-### 文档
+### 参考文档
 
 * [CSharp Documentation](https://docs.microsoft.com/dotnet/csharp/)
 * [ASP.NET Core Documentation](https://docs.microsoft.com/aspnet/core/)
@@ -31,7 +32,7 @@
 * [Entity Framework Documentation](https://docs.microsoft.com/ef/)
 * [Entity Framework Tutorial](http://www.entityframeworktutorial.net/efcore/entity-framework-core.aspx)
 
-### 组件
+### 相关组件
 
 #### EntityFramework
 
@@ -52,7 +53,7 @@
 
 #### AOP
 
-* [AspectCore.Extensions.DependencyInjection](https://github.com/dotnetcore/AspectCore-Framework)
+* [AspectCore](https://github.com/dotnetcore/AspectCore-Framework)
 
 #### Cache
 
