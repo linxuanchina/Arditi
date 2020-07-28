@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace Toxic.EntityFramework
 {
-    public interface IRepository<TEntity> where TEntity : class, new()
+    public interface IRepository<TEntity> where TEntity : class, IEntity, new()
     {
         #region Query
 

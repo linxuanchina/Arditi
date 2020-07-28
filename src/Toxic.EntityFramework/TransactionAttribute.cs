@@ -1,14 +1,15 @@
 using AspectCore.DynamicProxy;
 using Serilog;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace Toxic.EntityFramework
 {
     public sealed class TransactionAttribute : AbstractInterceptorAttribute
     {
-        private readonly IUnitOfWork _dbUnitOfWork;
+        private readonly IUnitOfWork<DbContext> _dbUnitOfWork;
 
-        public TransactionAttribute(IUnitOfWork dbUnitOfWork)
+        public TransactionAttribute(IUnitOfWork<DbContext> dbUnitOfWork)
         {
             _dbUnitOfWork = dbUnitOfWork;
         }

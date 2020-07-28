@@ -7,15 +7,13 @@ using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace Toxic.EntityFramework
 {
-    public class Repository<TEntity> : IRepository<TEntity> where TEntity : class, new()
+    public sealed class Repository<TEntity> : IRepository<TEntity> where TEntity : class, IEntity, new()
     {
-        protected readonly DbContext DbContext;
-
-        protected DbSet<TEntity> Entities => DbContext.Set<TEntity>();
-
+        private readonly DbContext _dbContext;
+        private DbSet<TEntity> Entities => _dbContext.Set<TEntity>();
         public Repository(DbContext dbContext)
         {
-            DbContext = dbContext;
+            _dbContext = dbContext;
         }
 
         #region Query
@@ -67,7 +65,7 @@ namespace Toxic.EntityFramework
 
         #region Add
 
-        protected void SetEntityDefinedValueForAdd(params TEntity[] entities)
+        private void SetEntityDefinedValueForAdd(params TEntity[] entities)
         {
             entities = Guard.Argument(entities, nameof(entities)).NotNull().NotEmpty();
             var entityType = typeof(TEntity);
@@ -75,13 +73,14 @@ namespace Toxic.EntityFramework
             {
                 if (typeof(IAuditEntity).IsAssignableFrom(entityType))
                 {
-                    entityType.GetProperty("CreatedOn")?.SetValue(entity, DateTime.Now);
-                    entityType.GetProperty("ModifiedOn")?.SetValue(entity, null);
+                    entityType.GetProperty(nameof(IAuditEntity.CreatedOn))?.SetValue(entity, DateTime.Now);
+                    entityType.GetProperty(nameof(IAuditEntity.ModifiedOn))?.SetValue(entity, null);
                 }
+
                 if (typeof(ISoftDeleteEntity).IsAssignableFrom(entityType))
                 {
-                    entityType.GetProperty("IsDeleted")?.SetValue(entity, false);
-                    entityType.GetProperty("DeletedOn")?.SetValue(entity, null);
+                    entityType.GetProperty(nameof(ISoftDeleteEntity.IsDeleted))?.SetValue(entity, false);
+                    entityType.GetProperty(nameof(ISoftDeleteEntity.DeletedOn))?.SetValue(entity, null);
                 }
             }
         }
@@ -110,15 +109,15 @@ namespace Toxic.EntityFramework
 
         #region Modify
 
-        protected void SetEntityDefinedValueForModify(params TEntity[] entities)
+        private void SetEntityDefinedValueForModify(params TEntity[] entities)
         {
             entities = Guard.Argument(entities, nameof(entities)).NotNull().NotEmpty();
             var entityType = typeof(TEntity);
-            if(typeof(IAuditEntity).IsAssignableFrom(entityType))
+            if (typeof(IAuditEntity).IsAssignableFrom(entityType))
             {
                 foreach (var entity in entities)
                 {
-                    entityType.GetProperty("ModifiedOn")?.SetValue(entity, DateTime.Now);
+                    entityType.GetProperty(nameof(IAuditEntity.ModifiedOn))?.SetValue(entity, DateTime.Now);
                 }
             }
         }
@@ -147,7 +146,7 @@ namespace Toxic.EntityFramework
 
         #region Remove
 
-        protected void SetEntityDefinedValueForRemove(out bool isSoftDelete, params TEntity[] entities)
+        private void SetEntityDefinedValueForRemove(out bool isSoftDelete, params TEntity[] entities)
         {
             entities = Guard.Argument(entities, nameof(entities)).NotNull().NotEmpty();
             var entityType = typeof(TEntity);
@@ -156,8 +155,8 @@ namespace Toxic.EntityFramework
             {
                 foreach (var entity in entities)
                 {
-                    entityType.GetProperty("IsDeleted")?.SetValue(entity, true);
-                    entityType.GetProperty("DeletedOn")?.SetValue(entity, DateTime.Now);
+                    entityType.GetProperty(nameof(ISoftDeleteEntity.IsDeleted))?.SetValue(entity, true);
+                    entityType.GetProperty(nameof(ISoftDeleteEntity.DeletedOn))?.SetValue(entity, DateTime.Now);
                 }
             }
         }

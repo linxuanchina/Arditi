@@ -9,7 +9,7 @@ namespace Toxic.Core
     {
         public static string FormatGuid(Guid source)
         {
-            return source.ToString("N");
+            return $"{source:N}";
         }
 
         public static string FormatMoney(decimal source)

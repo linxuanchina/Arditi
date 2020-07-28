@@ -9,14 +9,16 @@ namespace Toxic.EntityFramework
 {
     public static class ServiceExtensions
     {
-        public static IServiceCollection AddUnitOfWork<TContext>(
+        public static IServiceCollection AddUnitOfWork<TDbContext>(
             this IServiceCollection services)
-            where TContext : DbContext
+            where TDbContext : DbContext
         {
-            return services.AddScoped<IUnitOfWork, UnitOfWork<TContext>>();
+            return services.AddScoped<IUnitOfWork<TDbContext>, UnitOfWork<TDbContext>>();
         }
 
-        public static IServiceCollection AddRepositories(this IServiceCollection services, params Assembly[] assemblies)
+        public static IServiceCollection AddRepositories<TDbContext>(this IServiceCollection services,
+            params Assembly[] assemblies)
+            where TDbContext : DbContext
         {
             assemblies = Guard.Argument(assemblies, nameof(assemblies)).NotNull().NotEmpty();
             var definedTypes = new List<TypeInfo>();
@@ -24,23 +26,19 @@ namespace Toxic.EntityFramework
             {
                 definedTypes.AddRange(assembly.DefinedTypes);
             }
-            foreach (var interfaceTypeInfo in definedTypes.Where(typeInfo => typeInfo.IsInterface))
+
+            foreach (var entityType in definedTypes
+                .Select(typeInfo => typeInfo.AsType())
+                .Where(type => type.IsClass && typeof(IEntity).IsAssignableFrom(type)))
             {
-                var repositoryType = interfaceTypeInfo.ImplementedInterfaces.SingleOrDefault(type =>
-                    type.IsGenericType && type.GetGenericTypeDefinition() == typeof(IRepository<>));
-                if (repositoryType.IsNotNull())
-                {
-                    var repositoryImplType = definedTypes.SingleOrDefault(type => type.IsClass && repositoryType.IsAssignableFrom(type));
-                    if (repositoryImplType.IsNull())
-                    {
-                        services.AddTransient(repositoryType, typeof(Repository<>).MakeGenericType(repositoryType.GetGenericArguments().First()));
-                    }
-                    else
-                    {
-                        services.AddTransient(repositoryType, repositoryImplType);
-                    }
-                }
+                services.AddTransient(typeof(IRepository<>).MakeGenericType(entityType), serviceProvider =>
+                    typeof(Repository<>)
+                        .MakeGenericType(entityType)
+                        .GetConstructor(new[] {typeof(DbContext)})
+                        ?.Invoke(new object[]
+                            {serviceProvider.GetRequiredService<TDbContext>()}));
             }
+
             return services;
         }
     }

@@ -1,3 +1,4 @@
+using System.Text.RegularExpressions;
 using FluentValidation.Resources;
 using FluentValidation.Validators;
 
@@ -14,9 +15,10 @@ namespace Toxic.Validation.Validators
 
         protected override bool IsValid(PropertyValidatorContext context)
         {
-            if (context.PropertyValue.IsNotNull() && context.PropertyValue is string stringValue &&
-                stringValue.IsNotNullOrEmpty())
-                return stringValue.IsMatch(@"^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领A-Z]{1}[A-Z]{1}[A-Z0-9]{4}[A-Z0-9挂学警港澳]{1}$");
+            if (context.PropertyValue != null && context.PropertyValue is string stringValue &&
+                !string.IsNullOrEmpty(stringValue))
+                return Regex.IsMatch(stringValue,
+                    @"^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领A-Z]{1}[A-Z]{1}[A-Z0-9]{4}[A-Z0-9挂学警港澳]{1}$");
             return true;
         }
     }

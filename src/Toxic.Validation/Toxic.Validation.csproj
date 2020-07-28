@@ -14,14 +14,11 @@
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
         <PackageIconUrl>http://ww1.sinaimg.cn/large/523d7c48gy1gh0u706xyxj203k03kglm.jpg</PackageIconUrl>
+        <PackageVersion>1.0.1</PackageVersion>
     </PropertyGroup>
 
     <ItemGroup>
       <PackageReference Include="FluentValidation" Version="8.6.2" />
     </ItemGroup>
-
-    <ItemGroup>
-      <ProjectReference Include="..\Toxic.Core\Toxic.Core.csproj" />
-    </ItemGroup>
-
+    
 </Project>

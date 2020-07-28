@@ -1,3 +1,4 @@
+using System.Text.RegularExpressions;
 using FluentValidation.Resources;
 using FluentValidation.Validators;
 
@@ -14,9 +15,9 @@ namespace Toxic.Validation.Validators
 
         protected override bool IsValid(PropertyValidatorContext context)
         {
-            if (context.PropertyValue.IsNotNull() && context.PropertyValue is string stringValue &&
-                stringValue.IsNotNullOrEmpty())
-                return stringValue.IsMatch(@"^[\u4e00-\u9fa5]+$");
+            if (context.PropertyValue != null && context.PropertyValue is string stringValue &&
+                !string.IsNullOrEmpty(stringValue))
+                return Regex.IsMatch(stringValue, @"^[\u4e00-\u9fa5]+$");
             return true;
         }
     }
