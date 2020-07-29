@@ -13,7 +13,16 @@ namespace Toxic.EntityFramework
             this IServiceCollection services)
             where TDbContext : DbContext
         {
-            return services.AddScoped<IUnitOfWork<TDbContext>, UnitOfWork<TDbContext>>();
+            return services.AddScoped<IUnitOfWork, UnitOfWork<TDbContext>>();
+        }
+
+        public static IServiceCollection AddUnitOfWorkAndRepositories<TDbContext>(
+            this IServiceCollection services)
+            where TDbContext : DbContext
+        {
+            AddUnitOfWork<TDbContext>(services);
+            AddRepositories<TDbContext>(services, typeof(TDbContext).GetTypeInfo().Assembly);
+            return services;
         }
 
         public static IServiceCollection AddRepositories<TDbContext>(this IServiceCollection services,

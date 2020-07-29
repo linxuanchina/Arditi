@@ -3,14 +3,11 @@ using System.Collections.Generic;
 using System.Data;
 using System.Threading;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
 
 namespace Toxic.EntityFramework
 {
-    public interface IUnitOfWork<out TDbContext> : IDisposable where TDbContext : DbContext
+    public interface IUnitOfWork : IDisposable
     {
-        TDbContext DbContext { get; }
-        
         #region SaveChanges
 
         int SaveChanges(bool acceptAllChangesOnSuccess = true);

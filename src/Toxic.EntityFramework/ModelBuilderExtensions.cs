@@ -11,20 +11,19 @@ namespace Toxic.EntityFramework
         /// </summary>
         public static ModelBuilder HasSoftDeleteQueryFilter(this ModelBuilder modelBuilder)
         {
-            modelBuilder.Model.GetEntityTypes()
-                .Where(entityType => typeof(ISoftDeleteEntity).IsAssignableFrom(entityType.ClrType))
-                .ToList().ForEach(entityType =>
-                {
-                    modelBuilder.Entity(entityType.ClrType).Property<bool>("IsDeleted");
-                    var parameter = Expression.Parameter(entityType.ClrType, "e");
-                    var body = Expression.Equal(
-                        Expression.Call(typeof(EF),
-                            nameof(EF.Property),
-                            new[] { typeof(bool) },
-                            parameter, Expression.Constant("IsDeleted")),
-                        Expression.Constant(false));
-                    modelBuilder.Entity(entityType.ClrType).HasQueryFilter(Expression.Lambda(body, parameter));
-                });
+            foreach (var mutableEntityType in modelBuilder.Model.GetEntityTypes()
+                .Where(entityType => typeof(ISoftDeleteEntity).IsAssignableFrom(entityType.ClrType)))
+            {
+                var parameter = Expression.Parameter(mutableEntityType.ClrType, "entity");
+                var body = Expression.Equal(
+                    Expression.Call(typeof(EF),
+                        nameof(EF.Property),
+                        new[] {typeof(bool)},
+                        parameter, Expression.Constant(ShadowProperty.IsDeleted)),
+                    Expression.Constant(false));
+                modelBuilder.Entity(mutableEntityType.ClrType).HasQueryFilter(Expression.Lambda(body, parameter));
+            }
+
             return modelBuilder;
         }
     }

@@ -1,22 +1,21 @@
 using AspectCore.DynamicProxy;
 using Serilog;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
 
 namespace Toxic.EntityFramework
 {
     public sealed class TransactionAttribute : AbstractInterceptorAttribute
     {
-        private readonly IUnitOfWork<DbContext> _dbUnitOfWork;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public TransactionAttribute(IUnitOfWork<DbContext> dbUnitOfWork)
+        public TransactionAttribute(IUnitOfWork unitOfWork)
         {
-            _dbUnitOfWork = dbUnitOfWork;
+            _unitOfWork = unitOfWork;
         }
 
         public override async Task Invoke(AspectContext context, AspectDelegate next)
         {
-            using (var dbUnitOfWorkTransaction = await _dbUnitOfWork.BeginTransactionAsync())
+            using (var dbUnitOfWorkTransaction = await _unitOfWork.BeginTransactionAsync())
             {
                 try
                 {
