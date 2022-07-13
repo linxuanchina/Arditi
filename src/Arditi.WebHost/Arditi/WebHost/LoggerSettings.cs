@@ -24,8 +24,16 @@ public sealed class LoggerSettings : ILoggerSettings
                     .WithDefaultDestructurers()
                     .WithDestructurers(new[] { new DbUpdateExceptionDestructurer() });
             })
-            .WriteToDebug()
-            .WriteToConsole()
-            .WriteToJsonFile();
+            .WriteToConsole();
+
+        if (_context.HostingEnvironment.IsDevelopment())
+        {
+            configuration.WriteToDebug();
+        }
+
+        if (_context.HostingEnvironment.IsStaging() || _context.HostingEnvironment.IsProduction())
+        {
+            configuration.WriteToJsonFile();
+        }
     }
 }
