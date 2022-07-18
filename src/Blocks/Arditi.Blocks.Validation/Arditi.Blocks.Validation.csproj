@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\..\common.props" />
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="11.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Arditi.Blocks.Core\Arditi.Blocks.Core.csproj" />
+  </ItemGroup>
+
+</Project>

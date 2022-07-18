@@ -1,9 +1,0 @@
-<Project Sdk="Microsoft.NET.Sdk">
-
-  <Import Project="..\..\common.props" />
-
-  <ItemGroup>
-    <ProjectReference Include="..\Arditi.Data\Arditi.Data.csproj" />
-  </ItemGroup>
-
-</Project>
