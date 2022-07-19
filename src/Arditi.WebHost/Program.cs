@@ -5,8 +5,10 @@ using Arditi.WebHost;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using FluentValidation.AspNetCore;
+using MicroElements.Swashbuckle.FluentValidation.AspNetCore;
 using Microsoft.OpenApi.Models;
 using Serilog;
+using Unchase.Swashbuckle.AspNetCore.Extensions.Extensions;
 
 Log.Logger = new LoggerConfiguration()
     .MinimumLevel.Debug()
@@ -26,7 +28,6 @@ try
         var applicationModule = new ApplicationModule();
         applicationModule.ScanningAssemblies.Add(typeof(IApplicationLocator).Assembly);
         builder.RegisterModule(applicationModule);
-
         var webHostModule = new WebHostModule();
         builder.RegisterModule(webHostModule);
     }));
@@ -61,13 +62,30 @@ try
                 configuration.RegisterValidatorsFromAssemblyContaining<IApplicationLocator>();
             });
 
-        services.AddSwaggerGen(options =>
+        if (webAppBuilder.Environment.IsDevelopment())
         {
-            options.SwaggerDoc("",new OpenApiInfo
+            services.AddSwaggerGen(genOptions =>
             {
-                Title = "", Contact = new OpenApiContact { Name = "Dokey", Email = "linxuanchina@gmail.com" }
+                genOptions.SwaggerDoc("v1",
+                    new OpenApiInfo
+                    {
+                        Title = "标题",
+                        Version = "2022.7.19",
+                        Contact = new OpenApiContact { Name = "Dokey", Email = "linxuanchina@gmail.com" }
+                    });
+                genOptions.UseAllOfToExtendReferenceSchemas();
+                genOptions.AddEnumsWithValuesFixFilters(null, enumsOptions =>
+                {
+                    enumsOptions.ApplySchemaFilter = true;
+                    enumsOptions.ApplyParameterFilter = true;
+                    enumsOptions.ApplyDocumentFilter = true;
+                    enumsOptions.IncludeXEnumRemarks = true;
+                    enumsOptions.IncludeDescriptions = true;
+                    enumsOptions.DescriptionSource = DescriptionSources.DescriptionAttributes;
+                });
             });
-        });
+            services.AddFluentValidationRulesToSwagger();
+        }
     });
     var webApp = webAppBuilder.Build();
     webApp.UseSerilogRequestLogging();
@@ -78,6 +96,14 @@ try
     {
         route.MapControllers();
     });
+    if (webApp.Environment.IsDevelopment())
+    {
+        webApp.UseSwagger();
+        webApp.UseSwaggerUI(options =>
+        {
+        });
+    }
+
     await webApp.RunAsync();
     Log.Information("Stopped cleanly");
     return 0;

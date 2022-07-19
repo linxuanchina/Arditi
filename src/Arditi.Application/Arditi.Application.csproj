@@ -1,9 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <Import Project="..\..\common.props"/>
+  <Import Project="..\..\common.props" />
 
   <ItemGroup>
-    <ProjectReference Include="..\Arditi.EntityFrameworkCore\Arditi.EntityFrameworkCore.csproj"/>
+    <ProjectReference Include="..\Arditi.EntityFrameworkCore.MySQL\Arditi.EntityFrameworkCore.MySQL.csproj" />
   </ItemGroup>
 
 </Project>

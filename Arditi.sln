@@ -8,7 +8,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arditi.Core", "src\Arditi.C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arditi.Application", "src\Arditi.Application\Arditi.Application.csproj", "{CE0D3C1C-F2A5-4274-BF79-6CD36744892A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arditi.EntityFrameworkCore", "src\Arditi.EntityFrameworkCore\Arditi.EntityFrameworkCore.csproj", "{5F2F667E-DD14-4568-AAEE-2B48E1E9BF38}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arditi.EntityFrameworkCore.MySQL", "src\Arditi.EntityFrameworkCore.MySQL\Arditi.EntityFrameworkCore.MySQL.csproj", "{5F2F667E-DD14-4568-AAEE-2B48E1E9BF38}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arditi.WebHost", "src\Arditi.WebHost\Arditi.WebHost.csproj", "{44F54B04-A090-4EAF-9023-9D1C5A11B5DE}"
 EndProject

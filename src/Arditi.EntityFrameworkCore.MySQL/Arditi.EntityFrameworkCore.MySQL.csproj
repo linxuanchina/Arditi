@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\common.props"/>
+
+  <ItemGroup>
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="6.0.1"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Arditi.Core\Arditi.Core.csproj"/>
+  </ItemGroup>
+
+</Project>
