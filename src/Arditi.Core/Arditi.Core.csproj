@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\common.props"/>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="6.4.0"/>
+    <PackageReference Include="BCrypt.Net-Next" Version="4.0.3"/>
+    <PackageReference Include="Epoch.net" Version="3.0.41"/>
+    <PackageReference Include="EasyCaching.Core" Version="1.6.0"/>
+    <PackageReference Include="EasyCaching.InMemory" Version="1.6.0"/>
+    <PackageReference Include="EasyCaching.Redis" Version="1.6.0"/>
+    <PackageReference Include="EasyCaching.Serialization.SystemTextJson" Version="1.6.0"/>
+    <PackageReference Include="FluentValidation" Version="11.1.0"/>
+    <PackageReference Include="MediatR" Version="10.0.1"/>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="6.0.7"/>
+    <PackageReference Include="NPOI" Version="2.5.6"/>
+    <PackageReference Include="PasswordGenerator" Version="2.1.0"/>
+    <PackageReference Include="Refit" Version="6.3.2"/>
+    <PackageReference Include="Refit.HttpClientFactory" Version="6.3.2"/>
+    <PackageReference Include="Serilog" Version="2.11.0"/>
+    <PackageReference Include="Serilog.Exceptions" Version="8.3.0"/>
+    <PackageReference Include="Serilog.Exceptions.EntityFrameworkCore" Version="8.3.0"/>
+    <PackageReference Include="Serilog.Exceptions.Refit" Version="8.3.0"/>
+    <PackageReference Include="System.Text.Json" Version="6.0.5"/>
+    <PackageReference Include="Z.ExtensionMethods" Version="2.1.1"/>
+  </ItemGroup>
+
+</Project>

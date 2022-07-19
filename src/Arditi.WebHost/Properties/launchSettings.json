@@ -1,0 +1,12 @@
+﻿{
+  "profiles": {
+    "Arditi.WebAPI.WebHost": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "applicationUrl": "http://localhost:5192",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}
