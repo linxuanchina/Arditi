@@ -28,12 +28,21 @@ try
         var applicationModule = new ApplicationModule();
         applicationModule.ScanningAssemblies.Add(typeof(IApplicationLocator).Assembly);
         builder.RegisterModule(applicationModule);
+
         var webHostModule = new WebHostModule();
         builder.RegisterModule(webHostModule);
     }));
+
     webAppBuilder.WebHost.ConfigureServices(services =>
     {
         services.AddHttpContextAccessor();
+        services.AddAuthentication();
+
+        services.AddEasyCaching(cachingOptions =>
+        {
+            cachingOptions.UseRedis(webAppBuilder.Configuration);
+        });
+
         services
             .AddControllers()
             .AddJsonOptions(options =>
@@ -96,6 +105,7 @@ try
     {
         route.MapControllers();
     });
+
     if (webApp.Environment.IsDevelopment())
     {
         webApp.UseSwagger();

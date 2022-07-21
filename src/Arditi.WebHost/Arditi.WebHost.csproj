@@ -15,4 +15,9 @@
     <ProjectReference Include="..\Arditi.Application\Arditi.Application.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Arditi\Security\Authentication" />
+    <Folder Include="Microsoft\Extensions.DependencyInjection" />
+  </ItemGroup>
+
 </Project>
