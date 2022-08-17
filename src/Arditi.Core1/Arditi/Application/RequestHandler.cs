@@ -39,7 +39,7 @@ public abstract class ItemsRequestHandler<TRequest, TItem> : IRequestHandler<TRe
 
 public abstract class
     RequestPaginationHandler<TRequest, TItem> : IRequestHandler<TRequest, PaginationResponse<TItem>>
-    where TRequest : IPaginationRequest<TItem>
+    where TRequest : IPagedListRequest<TItem>
     where TItem : notnull
 {
     public async Task<PaginationResponse<TItem>> Handle(TRequest request, CancellationToken cancellationToken)

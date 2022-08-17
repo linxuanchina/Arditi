@@ -4,16 +4,16 @@ using Arditi.Application;
 
 namespace Arditi.Json.Converters;
 
-public sealed class ResponsiveExceptionConverter : JsonConverter<ResponsiveException>
+public sealed class ResponsiveExceptionConverter : JsonConverter<IRevealableException>
 {
     public override bool CanConvert(Type typeToConvert) =>
         typeof(ApplicationException).IsAssignableFrom(typeToConvert);
 
-    public override ResponsiveException Read(ref Utf8JsonReader reader, Type typeToConvert,
+    public override IRevealableException Read(ref Utf8JsonReader reader, Type typeToConvert,
         JsonSerializerOptions options) =>
         throw new NotSupportedException($"{nameof(ApplicationException)} can not be deserialized");
 
-    public override void Write(Utf8JsonWriter writer, ResponsiveException value,
+    public override void Write(Utf8JsonWriter writer, IRevealableException value,
         JsonSerializerOptions options)
     {
         void WritePropertyName(string propertyName) =>
@@ -22,10 +22,10 @@ public sealed class ResponsiveExceptionConverter : JsonConverter<ResponsiveExcep
         writer.WriteStartObject();
 
         WritePropertyName(nameof(value.Code));
-        writer.WriteNumberValue(value.Code);
+        writer.WriteStringValue(value.Code);
 
-        WritePropertyName(nameof(value.Message));
-        writer.WriteStringValue(value.Message);
+        WritePropertyName(nameof(value.Description));
+        writer.WriteStringValue(value.Description);
 
         if (options.DefaultIgnoreCondition == JsonIgnoreCondition.Never ||
             (options.DefaultIgnoreCondition is JsonIgnoreCondition.WhenWritingDefault

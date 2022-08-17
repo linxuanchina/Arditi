@@ -2,6 +2,7 @@ using System.Runtime.Serialization;
 
 namespace Arditi;
 
+[Serializable]
 public class ArditiException : Exception
 {
     public ArditiException()

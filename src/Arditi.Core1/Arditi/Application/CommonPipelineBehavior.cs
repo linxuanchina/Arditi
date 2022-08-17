@@ -28,9 +28,9 @@ public sealed class CommonPipelineBehavior<TRequest, TResponse> : MediatR.IPipel
 
         try
         {
-            response = await next().ConfigureAwait(false);
+            response = await next();
         }
-        catch (ResponsiveException exception)
+        catch (ArditiException exception) when (exception is IRevealableException)
         {
             response = (TResponse)new Response(exception);
         }

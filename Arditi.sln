@@ -4,7 +4,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{1F64BFDA-91F
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{B1890A5F-AC5B-4751-AF37-D53BD6C5A27D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arditi.Core", "src\Arditi.Core\Arditi.Core.csproj", "{7F70C8F2-5109-4429-BD93-E582DECE4E51}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arditi.Core1", "src\Arditi.Core1\Arditi.Core1.csproj", "{7F70C8F2-5109-4429-BD93-E582DECE4E51}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arditi.Application", "src\Arditi.Application\Arditi.Application.csproj", "{CE0D3C1C-F2A5-4274-BF79-6CD36744892A}"
 EndProject
@@ -13,6 +13,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arditi.WebHost", "src\Arditi.WebHost\Arditi.WebHost.csproj", "{44F54B04-A090-4EAF-9023-9D1C5A11B5DE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arditi.Core.Tests", "test\Arditi.Core.Tests\Arditi.Core.Tests.csproj", "{014B67F5-6979-424E-AC1A-1526E9BA3335}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arditi.Mediator", "src\Arditi.Mediator\Arditi.Mediator.csproj", "{4C7D0EF2-DCC5-4669-BACD-E7C7793BA277}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arditi.Core", "src\Arditi.Core\Arditi.Core.csproj", "{01EA01BF-31F8-4FA8-8C80-0C7A383B52D7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +29,8 @@ Global
 		{5F2F667E-DD14-4568-AAEE-2B48E1E9BF38} = {1F64BFDA-91FD-46FC-8271-F4E0B6E9395E}
 		{44F54B04-A090-4EAF-9023-9D1C5A11B5DE} = {1F64BFDA-91FD-46FC-8271-F4E0B6E9395E}
 		{014B67F5-6979-424E-AC1A-1526E9BA3335} = {B1890A5F-AC5B-4751-AF37-D53BD6C5A27D}
+		{4C7D0EF2-DCC5-4669-BACD-E7C7793BA277} = {1F64BFDA-91FD-46FC-8271-F4E0B6E9395E}
+		{01EA01BF-31F8-4FA8-8C80-0C7A383B52D7} = {1F64BFDA-91FD-46FC-8271-F4E0B6E9395E}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{7F70C8F2-5109-4429-BD93-E582DECE4E51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -47,5 +53,13 @@ Global
 		{014B67F5-6979-424E-AC1A-1526E9BA3335}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{014B67F5-6979-424E-AC1A-1526E9BA3335}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{014B67F5-6979-424E-AC1A-1526E9BA3335}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C7D0EF2-DCC5-4669-BACD-E7C7793BA277}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C7D0EF2-DCC5-4669-BACD-E7C7793BA277}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C7D0EF2-DCC5-4669-BACD-E7C7793BA277}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C7D0EF2-DCC5-4669-BACD-E7C7793BA277}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01EA01BF-31F8-4FA8-8C80-0C7A383B52D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01EA01BF-31F8-4FA8-8C80-0C7A383B52D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01EA01BF-31F8-4FA8-8C80-0C7A383B52D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01EA01BF-31F8-4FA8-8C80-0C7A383B52D7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

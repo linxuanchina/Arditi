@@ -16,7 +16,7 @@ public interface IItemsRequest<TItem> : IRequest<ItemsResponse<TItem>> where TIt
 {
 }
 
-public interface IPaginationRequest<TItem> : IRequest<PaginationResponse<TItem>> where TItem : notnull
+public interface IPagedListRequest<TItem> : IRequest<PaginationResponse<TItem>> where TItem : notnull
 {
     Pagination Pagination { get; set; }
 }

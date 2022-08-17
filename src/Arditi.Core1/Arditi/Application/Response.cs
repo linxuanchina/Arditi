@@ -1,8 +1,8 @@
 ﻿namespace Arditi.Application;
 
-public record Response(ResponsiveException? Exception = null)
+public record Response(ArditiException? Error = null)
 {
-    public bool Successful => Exception.IsNull();
+    public bool Successful => Error.IsNull();
 }
 
 public sealed record ItemResponse<TItem>(TItem? Item) : Response;

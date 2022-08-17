@@ -2,6 +2,12 @@ namespace Arditi;
 
 public static class Check
 {
+    public static T IsDefinedAttribute<T>(Type type, bool inherit = true) where T : Attribute
+    {
+        var attribute = Attribute.GetCustomAttribute(type, typeof(T), inherit);
+        return NotNull(attribute, nameof(T)).To<T>();
+    }
+
     public static T NotNull<T>(T value, string paramName)
     {
         if (value == null)
